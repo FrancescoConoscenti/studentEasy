@@ -39,11 +39,13 @@ public class MenuActivity extends AppCompatActivity {
         try {
 
             String contenuto = loadfile();
-            one_date_lessons = takeObjects(contenuto, "2021-12-14");
+            one_date_lessons = takeObjects(contenuto, "2021-12-14" /*data scelta del calendario*/ );
 
         } catch (FileNotFoundException | JSONException e) {
             e.printStackTrace();
         }
+
+        //metti sveglia(one_date_lesson)
 
 
     }
@@ -117,21 +119,20 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
-    public static Intent put_alarm() {
-        int hour = 8;
-        int minute = 0;
-        //Creo un arraylist con i giorni della settimana in cui voglio che la sveglia sia messa
+    public static Intent put_alarm(/*oggetto selezionato alla data giusta*/) {
 
-        final ArrayList<Integer> days = new ArrayList<>();
-        days.add(Calendar.DATE);
-        days.add(Calendar.DATE + 1);
-        days.add(Calendar.DATE + 2);
+        //prendi l'ora e data dall'oggetto
+        String dateObj = Obj.getString("start");
+        String hour=dateObj.substring(10, 13);
+        String minute=dateObj.substring(13, 16);
+        String day=dateObj.substring(0, 10);
 
         Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
         intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
         intent.putExtra(AlarmClock.EXTRA_MINUTES, minute);
-        intent.putExtra(AlarmClock.EXTRA_DAYS, days);
+        intent.putExtra(AlarmClock.EXTRA_DAYS, day);
 
         return intent;
     }
 }
+
