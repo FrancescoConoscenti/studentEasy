@@ -7,16 +7,20 @@
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context=".MenuActivity">
 
     <CalendarView
         android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
+        android:background="#F8F8F8"
+
         android:layout_height="230dp"
         android:text=""
          />

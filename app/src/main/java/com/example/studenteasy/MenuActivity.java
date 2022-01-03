@@ -88,10 +88,11 @@ public class MenuActivity extends AppCompatActivity {
 
                     //voglio sapere quante lezioni ci sono oggi
                      N=one_date_lessons.length();
-                    //chiamo il metodo che si occupa di settare la view con le informazioni utili
+                     //chiamo il metodo che si occupa di settare la view con le informazioni utili
                     setviews(N);
+
                 } catch (JSONException e) {
-                    e.printStackTrace();
+                    tv.setText("Non ci sono lezioni per la data selezionata                      .");
                 }
 
             }
@@ -220,21 +221,18 @@ public class MenuActivity extends AppCompatActivity {
    //Metodo set views da rivedere
     @SuppressLint("SetTextI18n")
     private void setviews(int N) throws JSONException {
-        tv.setText(" ");
-        if(N==0) {
-            tv.setText("Non ci sono lezioni per la data selezionata");
-        }
-        else {
+
+            tv.setText("");
             for (int i = 0; i < N; i++) {
                 /*Estraggo le informazioni che voglio mostrare dalla variabile globale
-                che contiene le lezioni nel giorno specifico
-                 */
+                che contiene le lezioni nel giorno specifico*/
+
                 JSONObject lez_temp=one_date_lessons.getJSONObject(i);
                 String titolo=lez_temp.getString("title");
                 String prof=lez_temp.getString("docente");
                 String time=lez_temp.getString("time");
-                tv.append(titolo+ " Svolta dal professor   "+prof + " seguendo l'orario "+time+"\n");
-            }
+                tv.append(titolo+ "\nprofessor   "+prof + " l'orario "+time+"\n");
+
         }
     }
 }

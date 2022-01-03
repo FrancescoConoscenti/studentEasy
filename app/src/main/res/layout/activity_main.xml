@@ -12,7 +12,7 @@
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#FFFFFF"
+        android:background="#989797"
         android:entries="@array/courses"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,12 +24,24 @@
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="221dp"
         android:onClick="StartMenu"
         android:text="@string/Start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinner1" />
+
+
+    <ImageView
+        android:layout_width="808dp"
+        android:layout_height="825dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner1"
+        app:layout_constraintVertical_bias="0.615"
+        app:srcCompat="@drawable/alma1" />
 
     <TextView
         android:id="@+id/textView2"
